@@ -1,0 +1,23 @@
+{
+  "name": "attributes",
+  "plural": "attributes",
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "app_name": {
+      "type": "string",
+      "required": true
+    },
+    "languages": {
+      "type": "object",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

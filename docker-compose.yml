@@ -1,0 +1,33 @@
+version: '3'
+services:
+  mongodb:
+    image: mongo:3.2.18-jessie
+    container_name: "mongodb"
+    environment:
+      # - AUTH=yes
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - MONGODB_USER=touch
+      - MONGODB_PASSWORD=root-er
+      - MONGODB_DATABASE=multilangDb
+      # - MONGODB_USER=touch 
+      # - MONGODB_PASS=root-er
+      # - MONGODB_ADMIN_USER=admin
+      # - MONGODB_ADMIN_PASS=root-er
+      # - MONGODB_APPLICATION_DATABASE=multilangDb
+      # - MONGODB_APPLICATION_USER=user
+      # - MONGODB_APPLICATION_PASS=root-er
+    volumes:
+      - ./data/db:/data/db
+    ports:
+        - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+  app:
+    build: .
+    volumes:
+      - ./:/multilang
+    links:
+      - mongodb
+    # command: node .
+    ports:
+      - "3000:3000"

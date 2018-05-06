@@ -1,0 +1,15 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "multilangDS": {
+    "host": "127.0.0.1",
+    "port": 27017,
+    "database": "multilangDb",
+    "username": "touch",
+    "password": "root-er",
+    "name": "multilangDS",
+    "connector": "mongodb"
+  }
+}
